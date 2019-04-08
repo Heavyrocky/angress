@@ -1,0 +1,15 @@
+---
+ - hosts: localhost
+   tasks: 
+     - name: Iniciando postgresql
+       docker_container:
+         name: postgresql
+         image: postgres
+         ports:
+           - "5432:5432"
+         env:
+           POSTGRES_USER: tucano
+           POSTGRES_PASSWORD: foo
+           POSTGRES_DB: cacatua
+         volumes: 
+           - /tmp/postgres:/var/lib/postgresql/data
